@@ -26,15 +26,15 @@ def signIn():
 
 
 @app.route('/Edit')
-def chatRoom():
+def Edit():
     return render_template('weddingEdit.html')
 
 @app.route('/Modify')
-def chatRoom():
+def Modify():
     return render_template('weddingModify.html')
 
 @app.route('/write')
-def chatRoom():
+def Write():
     return render_template('weddingWrite.html')
 
 

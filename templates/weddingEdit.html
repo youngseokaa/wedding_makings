@@ -83,50 +83,53 @@
                                 let girlDad = rows[i]['girlDad']
                                 let manAccount = rows[i]['manAccount']
                                 let girlAccount = rows[i]['girlAccount']
-                                let temp_html = `<div class="mycards" id="comment-list">
-                                                      <div>
-                                                        ${manName} & ${girlName}
-                                                        ${weddingDay}
-                                                      </div>
-                                                      <div>
-                                                        ${comment}
-                                                      </div>
-                                                      <div>
-                                                         ${manName} 엄마${manMom} & 아빠${manDad}
-                                                         & ${girlName} 엄마${girlMom} & 아빠${girlDad}
-                                                      </div>
-                                                      <div>
+                                let temp_html = `<div>
+                                                    ${manName} & ${girlName}
+                                                    ${weddingDay}
+                                                    </div>
+                                                  <div>
+                                                    ${comment}
+                                                    </div>
+                                                  <div>
+                                                     ${manName} 엄마${manMom} & 아빠${manDad}
+                                                     & ${girlName} 엄마${girlMom} & 아빠${girlDad}
+                                                    </div>
+                                                  <div>
 
-                                                      </div>
-                                                      <div>
-                                                        ${weddingPlace}
-                                                      </div>
-                                                      <div>
-                                                      </div>
-                                                      <div>
-                                                      </div>
-                                                      <div>
-                                                      </div>
-                                                      <div>
-                                                       ${girlAccount}
-                                                       ${manAccount}
-                                                      </div>
-                                              <div/>`
-
-
-                                $('#comment-box').append(temp_html)
+                                                    </div>
+                                                  <div>
+                                                    ${weddingPlace}
+                                                    </div>
+                                                  <div>
+                                                    </div>
+                                                  <div>
+                                                    </div>
+                                                  <div>
+                                                    </div>
+                                                  <div>
+                                                   ${girlAccount}
+                                                   ${manAccount}
+                                                    </div>
+                                                   `
                             }
                         }
                     });
                 }
+        function modify(){
 
+        }
+        function delete(){
+
+        }
 
     </script>
 </head>
 <body>
 <div class="mypic">
-    <button>수정하기</button>
-    <button>삭제하기</button>
+    <div class="mycards" id="comment-box">
+        <div/>
+    <button onclick="modify" id="WeddingModify">수정하기</button>
+    <button onclick="delete" id="WeddingDelete">삭제하기</button>
 </div>
 </body>
 </html>
