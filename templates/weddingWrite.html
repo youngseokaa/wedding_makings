@@ -2,9 +2,78 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>청첩장 작성 페이지</title>
+
+    <style>
+    </style>
+    <script>
+        // 수정 페이지에서 활용
+        // $(document).ready(function () {
+        //     show_invitation();
+        // });
+
+        function saveInvitation() {
+            let name = $('#name').val()
+            let address = $('#address').val()
+            let size = $('#size').val()
+            $.ajax({
+                type: 'POST',
+                url: '/mars',
+                data: {name_give: name, address_give: address, size_give: size},
+                success: function (response) {
+                    alert(response['msg'])
+                    window.location.reload();
+                }
+            });
+        }
+    </script>
 </head>
 <body>
-
+<div class="mask"></div>
+<div class="order">
+    <h1>화성에 땅 사놓기!</h1>
+    <h3>가격: 평 당 500원</h3>
+    <p>
+        화성에 땅을 사둘 수 있다고?<br/>
+        앞으로 백년 간 오지 않을 기회. 화성에서 즐기는 노후!
+    </p>
+    <div class="order-info">
+        <div class="input-group mb-3">
+            <span class="input-group-text">이름</span>
+            <input id="name" type="text" class="form-control">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">주소</span>
+            <input id="address" type="text" class="form-control">
+        </div>
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="size">평수</label>
+            <select class="form-select" id="size">
+                <option selected>-- 주문 평수 --</option>
+                <option value="10평">10평</option>
+                <option value="20평">20평</option>
+                <option value="30평">30평</option>
+                <option value="40평">40평</option>
+                <option value="50평">50평</option>
+            </select>
+        </div>
+        <button onclick="save_order()" type="button" class="btn btn-warning mybtn">주문하기</button>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">이름</th>
+            <th scope="col">주소</th>
+            <th scope="col">평수</th>
+        </tr>
+        </thead>
+        <tbody id="order_list">
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
